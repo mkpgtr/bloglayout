@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holy Grail Layout with Content</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+    }
+
+    /* Grid container */
+    .container {
+      display: grid;
+      grid-template-areas:
+        "header header header"
+        "sidebar-left main sidebar-right"
+        "footer footer footer";
+      grid-template-columns: 1fr 3fr 1fr;
+      gap: 1rem;
+      flex-grow: 1;
+      padding: 1rem;
+      height: 100%;
+    }
+
+    /* Header */
+    .header {
+      grid-area: header;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    /* Main Content */
+    .main-content {
+      grid-area: main;
+      background-color: #f1f1f1;
+      padding: 1.5rem;
+      min-height: 100%;
+      border-radius: 8px;
+    }
+
+    /* Sidebars */
+    .sidebar-left, .sidebar-right {
+      background-color: #e0e0e0;
+      padding: 1.5rem;
+      min-height: 100%;
+      border-radius: 8px;
+    }
+
+    .sidebar-left { grid-area: sidebar-left; }
+    .sidebar-right { grid-area: sidebar-right; }
+
+    /* Footer */
+    .footer {
+      grid-area: footer;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 1.2rem;
+    }
+
+    /* Content styling */
+    .header h1 { margin: 0; }
+
+    .main-content h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .main-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .main-content img {
+      width: 100%;
+      height: auto;
+      margin-top: 1rem;
+      border-radius: 8px;
+    }
+
+    .sidebar-left, .sidebar-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .sidebar-left img, .sidebar-right img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-areas:
+          "header"
+          "main"
+          "sidebar-left"
+          "sidebar-right"
+          "footer";
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>My Blog</h1>
+  </header>
+
+  <div class="container">
+    <!-- Left Sidebar -->
+    <aside class="sidebar-left">
+      <h2>Latest Articles</h2>
+      <p>How to build responsive layouts effectively.</p>
+      <img src="https://via.placeholder.com/200x150" alt="Article Image">
+      <p>10 Tips for writing cleaner HTML and CSS.</p>
+      <img src="https://via.placeholder.com/200x150" alt="Article Image">
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <h2>Welcome to Our Blog</h2>
+      <p>
+        Discover the latest trends, tips, and techniques in web development. 
+        We cover everything from design to deployment to help you create 
+        stunning, high-performing websites.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada 
+        convallis orci, nec feugiat nunc sollicitudin eget. Proin vestibulum 
+        mauris vel metus aliquet fermentum. Quisque luctus euismod dictum. Nam 
+        et sapien vel nisl venenatis congue.
+      </p>
+      <img src="https://via.placeholder.com/600x300" alt="Main Content Image">
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="sidebar-right">
+      <h2>Popular Topics</h2>
+      <p>Web Design Trends 2024</p>
+      <img src="https://via.placeholder.com/200x150" alt="Topic Image">
+      <p>Introduction to React</p>
+      <img src="https://via.placeholder.com/200x150" alt="Topic Image">
+    </aside>
+  </div>
+
+  <footer class="footer">
+    &copy; 2024 Your Website - All Rights Reserved
+  </footer>
+</body>
+</html>
